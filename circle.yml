@@ -15,5 +15,6 @@ deployment:
   hub: 
     branch: master
     commands:
+      - docker tag ravilakhotia2006/helloworld:test
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push ravilakhotia2006/helloworld
+      - docker push ravilakhotia2006/helloworld:test
