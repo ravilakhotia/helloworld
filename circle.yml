@@ -9,7 +9,7 @@ dependencies:
 
 test:
   override:
-    - docker run -d -p 9200:9200 ravilakhotia2006/helloworld
+          - docker run -d -p 9200:9200 ravilakhotia2006/helloworld:$CIRCLE_SHA1
 
 deployment:
   hub: 
