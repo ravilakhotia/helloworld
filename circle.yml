@@ -5,7 +5,7 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker build -t ravilakhotia2006/helloworld .
+    - docker build -t ravilakhotia2006/helloworld:$CIRCLE_SHA1 .
 
 test:
   override:
@@ -15,6 +15,5 @@ deployment:
   hub: 
     branch: master
     commands:
-      - docker tag ravilakhotia2006/helloworld:test
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push ravilakhotia2006/helloworld:test
+      - docker push ravilakhotia2006/helloworld:$CIRCLE_SHA1
